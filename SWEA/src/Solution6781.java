@@ -29,10 +29,12 @@ public class Solution6781 {
 			sort2();
 			for(int i=0;i<7;i++) {
 				if(!done[i]) {
-					if(checkIdentical(i)) {
-						
+					if(!checkIdentical(i)) {
+						if(checkSequence(i,1)) {
+							setCnt++;
+						}
 					}else {
-						
+						setCnt++;
 					}
 				}
 			}
@@ -43,13 +45,16 @@ public class Solution6781 {
 				bw.write("#"+tc+" Continue\n");
 				bw.flush();				
 			}
+			for(int i=0;i<9;i++) {
+				done[i] = false;
+			}
 		}
 		bw.close();
 	}
 	public static boolean checkIdentical(int idx) {
 		int cnt = 0;
 		for(int i=idx;i<9 && i<idx+3;i++) {
-			if(deck[1][idx]==deck[1][idx]) {
+			if(deck[1][idx]==deck[1][i]) {
 				if(deck[0][idx] == deck[0][i]) {
 					cnt++;
 					if(cnt==3)break;
@@ -62,8 +67,22 @@ public class Solution6781 {
 		done[idx] = done[idx+1] = done[idx+2] = true;
 		return true;
 	}
-	public static void checkSequence(int idx, int cnt) {
-		
+	public static boolean checkSequence(int idx, int cnt) {
+		if(cnt == 3) {
+			done[idx] = true;
+			return true;
+		}
+		for(int i=0;i<9;i++) {
+			if(!done[i]&&i!=idx) {
+				if(deck[1][idx]==deck[1][i] && deck[0][idx]+1 == deck[0][i]) {
+					if(checkSequence(i,cnt+1)) {
+						done[i] = true;
+						return true;
+					}
+				}
+			}
+		}
+		return false;
 	}
 	public static void sort1() {
 		for(int i=0;i<9;i++) {
