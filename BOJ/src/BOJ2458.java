@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class Main2458 {
+public class BOJ2458 {
 	static int N,M;
 	static int[][] up;
 	static int[][] down;

@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class Main14890_경사로 {
+public class BOJ14890_경사로 {
 	static int[][] map = new int[100][100];
 	static boolean[] row = new boolean[100];
 	static boolean[] col = new boolean[100];

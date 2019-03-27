@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class J1681 {
+public class JO1681 {
 	static int[][] adj = new int[12][12];
 	static int N;
 	static int minCost;

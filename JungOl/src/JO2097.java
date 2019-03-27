@@ -8,7 +8,7 @@ import java.util.Queue;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
-public class J2097 {
+public class JO2097 {
 	static int[][] adj = new int[101][101];
 	static int[] dist = new int[101];
 	static int N,M;

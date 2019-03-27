@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class J1053 {
+public class JO1053 {
 	public static void main(String[] args) {
 		int[][] result = new int[2][2];
 		Scanner sc = new Scanner(System.in);

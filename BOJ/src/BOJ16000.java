@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class Main16000 {
+public class BOJ16000 {
 	static int N, M;
 	static int[][] map = new int[2000][2000];
 	static int[][] changedMap = new int[2000][2000];

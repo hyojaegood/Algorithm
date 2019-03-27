@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class Solution0325숙제 {
+public class Solution1952_수영장 {
 	static int[] month = new int[12];
 	static int[] price = new int[4];
 	static int[] d = new int[12];
