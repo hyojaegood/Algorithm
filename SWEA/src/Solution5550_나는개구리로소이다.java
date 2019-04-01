@@ -3,6 +3,8 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Solution5550_나는개구리로소이다 {
 	static char[] ary = new char[2500];
@@ -17,6 +19,8 @@ public class Solution5550_나는개구리로소이다 {
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		T = Integer.parseInt(br.readLine());
 		String input;
+		Queue<Integer> q1 = new LinkedList<Integer>();
+		Queue<Integer> q2 = new LinkedList<Integer>();
 		int firstK;
 		int cCnt;
 		int kCnt;
@@ -45,20 +49,31 @@ public class Solution5550_나는개구리로소이다 {
 				}
 				if(!isPossible)break;
 			}
-			
-			
-			
 			if(isPossible) {
-	
+				for(int i=0;i<length;i++) {
+					if(ary[i]=='c') {
+						if(q2.isEmpty()) {
+							q1.add(i);
+						}else {
+							q1.add(q2.poll());
+						}
+					}
+					if(ary[i]=='k') {
+						q2.add(q1.poll());
+					}
+				}
 			}
+			
 			for(int i=0;i<length;i++) {
 				visit[i] = false;
 			}
 			if(isPossible) {
-				result = kCnt - cCnt;
+				result = q2.size();
 			}else {
 				result = -1;
 			}
+			q1.clear();
+			q2.clear();
 			bw.write("#"+tc+" "+result+"\n");
 			bw.flush();
 		}
