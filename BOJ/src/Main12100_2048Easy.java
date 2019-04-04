@@ -6,7 +6,7 @@ import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
 public class Main12100_2048Easy {
-	static int[][] map = new int[20][20];
+	static int[][] map = new int[21][21];
 	static int N;
 	static int maxValue;
 	public static void main(String[] args) throws NumberFormatException, IOException {
@@ -14,13 +14,14 @@ public class Main12100_2048Easy {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringTokenizer st;
-		int[][] saveMap = new int[20][20];
+		int[][] saveMap = new int[21][21];
 		maxValue = 0;
 		N = Integer.parseInt(br.readLine());
 		for(int i=0;i<N;i++) {
 			st = new StringTokenizer(br.readLine().trim());
 			for(int j=0;j<N;j++) {
 				map[i][j] = Integer.parseInt(st.nextToken());
+				if(maxValue<map[i][j])maxValue=map[i][j];
 			}
 		}
 		for(int i=0;i<4;i++) {
@@ -74,7 +75,7 @@ public class Main12100_2048Easy {
 		}
 	}
 	public static void move(int dir, int depth) {
-		int[][] saveMap = new int[20][20];
+		int[][] saveMap = new int[21][21];
 		if(depth==5) {
 			return;
 		}else {

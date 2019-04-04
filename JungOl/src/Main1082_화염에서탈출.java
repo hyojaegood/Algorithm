@@ -94,12 +94,12 @@ public class Main1082_화염에서탈출 {
 				}
 				qHuman.poll();
 			}
-			System.out.printf("%d분후\n",t);
-			for(int i=0;i<R;i++) {
-				for(int j=0;j<C;j++) {
-					System.out.printf("%c",map[i][j]);
-				}System.out.println();
-			}
+//			System.out.printf("%d분후\n",t);
+//			for(int i=0;i<R;i++) {
+//				for(int j=0;j<C;j++) {
+//					System.out.printf("%c",map[i][j]);
+//				}System.out.println();
+//			}
 		}
 		//불이동
 		//용자이동
