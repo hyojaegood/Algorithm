@@ -31,9 +31,6 @@ public class Solution4672_수진이의팰린드롬 {
 					result+=plus(count[i]);
 				}
 			}
-			for(int i=0;i<N;i++) {
-				System.out.printf("%c",input[i]);
-			}System.out.println();
 			bw.write("#"+tc+" "+result+"\n");
 			bw.flush();
 		}
