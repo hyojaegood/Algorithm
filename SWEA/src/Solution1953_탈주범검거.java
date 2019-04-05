@@ -75,6 +75,7 @@ public class Solution1953_탈주범검거 {
 		int tmpR, tmpC;
 		int nextR, nextC;
 		Queue<location> q = new LinkedList<location>();
+	
 		visit[r][c] = true;
 		q.add(new location(r,c));
 		while(t<L) {
