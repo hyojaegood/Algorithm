@@ -13,12 +13,14 @@ public class Main14503_로봇청소기 {
 	static int[] dr= {-1,0,1,0};
 	static int[] dc= {0,1,0,-1};
 	static boolean[][] isCleaned = new boolean[50][50];
+	static int cnt;
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringTokenizer st;
 		boolean isExit = false;
+		cnt = 0;
 		st = new StringTokenizer(br.readLine());
 		N = Integer.parseInt(st.nextToken());
 		M = Integer.parseInt(st.nextToken());
@@ -34,8 +36,10 @@ public class Main14503_로봇청소기 {
 		}
 		while(true) {
 			//1
-			isCleaned[r][c] = true;
-			System.out.printf("[%d,%d]\n",r,c);
+			if(!isCleaned[r][c]) {
+				isCleaned[r][c] = true;
+				cnt++;	
+			}
 			//2
 			for(int i=1;i<=4;i++) {
 				d--;
@@ -52,11 +56,13 @@ public class Main14503_로봇청소기 {
 				}
 				if(isExit)break;
 			}
+			if(isExit)break;
 		}
+		System.out.println(cnt);
 	}
 	public static boolean checkBack(int row, int col, int dir) {
 		int nextR = row + dr[(dir+2)%4];
-		int nextC = col + dr[(dir+2)%4];
+		int nextC = col + dc[(dir+2)%4];
 		if(nextR<N && nextR>=0 && nextC<M && nextC>=0) {
 			if(map[nextR][nextC]==0) {
 				r = nextR;
