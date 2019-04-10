@@ -5,43 +5,40 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class sample {
+public class Main14891_톱니바퀴 {
 	static int[][] circle = new int[5][9];
 	static int K;
 	static int[][] move = new int[102][2];
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		int T;
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringTokenizer st;
 		String in;
-		T= Integer.parseInt(br.readLine());
-		for(int tc=1;tc<=T;tc++) {
-			K=Integer.parseInt(br.readLine());
-			for(int i=1;i<=4;i++) {
-				st = new StringTokenizer(br.readLine());
-				for(int j=0;j<8;j++) {
-					circle[i][j] = Integer.parseInt(st.nextToken());
-				}
+		
+		for(int i=1;i<=4;i++) {
+			in = br.readLine();
+			for(int j=0;j<8;j++) {
+				circle[i][j] = in.charAt(j) - '0';
 			}
-			for(int i=0;i<K;i++) {
-				st = new StringTokenizer(br.readLine());
-				move[i][0] = Integer.parseInt(st.nextToken());
-				move[i][1] = Integer.parseInt(st.nextToken());
-			}
-			for(int i=0;i<K;i++) {
-				rotation(move[i][0],move[i][1]);
-			}
-			int result = 0;
-			for(int i=1;i<=4;i++) {
-				if(circle[i][0]==1) {
-					result+=pow(i-1);
-				}
-			}
-			bw.write("#"+tc+" "+result+"\n");
-			bw.flush();
 		}
+		K=Integer.parseInt(br.readLine());
+		for(int i=0;i<K;i++) {
+			st = new StringTokenizer(br.readLine());
+			move[i][0] = Integer.parseInt(st.nextToken());
+			move[i][1] = Integer.parseInt(st.nextToken());
+		}
+		for(int i=0;i<K;i++) {
+			rotation(move[i][0],move[i][1]);
+		}
+		int result = 0;
+		for(int i=1;i<=4;i++) {
+			if(circle[i][0]==1) {
+				result+=pow(i-1);
+			}
+		}
+		bw.write(""+result);
+		bw.flush();
 		bw.close();
 	}
 	public static int pow(int n) {
@@ -95,7 +92,7 @@ public class sample {
 				canRotate[3] = -dir;
 				if(circle[3][6]!=circle[2][2]) {
 					canRotate[2] = dir;
-					if(circle[2][6]!=circle[1][6]) {
+					if(circle[2][6]!=circle[1][2]) {
 						canRotate[1] = -dir;
 					}
 				}
