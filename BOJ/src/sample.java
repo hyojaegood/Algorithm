@@ -104,19 +104,27 @@ public class sample {
 		int[] tmp = new int[9]; 
 		for(int i=1;i<=4;i++) {
 			tmp  = circle[i].clone();
-			if(canRotate[i]==1) {
-				for(int j=0;j<7;j++) {
-					circle[i][j+1] = tmp[j];
-				}
-				circle[i][0] = tmp[7];
-			}else if(canRotate[i]==-1) {
+			if(canRotate[i]>0) {
+				int tmp1 = circle[i][0];
+				int tmp2;
 				for(int j=1;j<8;j++) {
-					circle[i][j-1] = tmp[j];
+					tmp2 = circle[i][j];
+					circle[i][j] = tmp1;
+					tmp1 = tmp2;
 				}
-				circle[i][7] = tmp[0];
+				circle[num][0] = tmp1;
+			}else if(canRotate[i]<0) {
+				int tmp1 = circle[i][7];
+				int tmp2;
+				for(int j=6;j>=0;j--) {
+					tmp2 = circle[i][j];
+					circle[i][j] = tmp1;
+					tmp1 = tmp2;
+				}
+				circle[i][7] = tmp1;
 			}
 		}
-		
+
 	}
 
 }
