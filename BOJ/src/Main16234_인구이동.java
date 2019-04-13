@@ -22,6 +22,7 @@ public class Main16234_인구이동 {
 		L = Integer.parseInt(st.nextToken());
 		R = Integer.parseInt(st.nextToken());
 		int unionCnt;
+		int time = 0;
 		for(int i=1;i<=N;i++) {
 			st = new StringTokenizer(br.readLine());
 			for(int j=1;j<=N;j++) {
@@ -34,6 +35,8 @@ public class Main16234_인구이동 {
 				for(int j=1;j<=N;j++) {
 					if(unionMap[i][j]==0) {
 						unionCnt++;
+						unionInfo[unionCnt][0] = 0;
+						unionInfo[unionCnt][1] = 0;
 						dfs(i,j,unionCnt);
 					}
 				}
@@ -44,18 +47,14 @@ public class Main16234_인구이동 {
 					A[i][j] = unionInfo[unionMap[i][j]][1]/unionInfo[unionMap[i][j]][0];
 				}
 			}
-			
-			for(int i=1;i<=N;i++) {
-				for(int j=1;j<=N;j++) {
-					System.out.printf("%d ",A[i][j]);
-				}System.out.println();
-			}System.out.println("---------------");
 			for(int i=1;i<=N;i++) {
 				for(int j=1;j<=N;j++) {
 					unionMap[i][j] = 0;
 				}
 			}
+			time++;
 		}
+		System.out.println(time);
 	}
 	public static int abs(int a) {
 		if(a<0)return -a;

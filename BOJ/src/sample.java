@@ -9,20 +9,10 @@ public class sample {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		int N=20;
+		int N=16;
 		for(int i=1;i<=N;i++) {
 			for(int j=1;j<=N;j++) {
-				if(i==10 && j==10) {
-					System.out.print("9 ");
-					continue;
-				}
-				if(j%3==1) {
-					System.out.print("3 ");
-				}else if(j%3==2) {
-					System.out.print("2 ");
-				}else {
-					System.out.print("1 ");
-				}
+				System.out.printf("0 ");
 			}System.out.println();
 		}
 
